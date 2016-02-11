@@ -18,3 +18,27 @@ clone this repository
 
 ![リンクテキスト](https://github.com/AtsushiSakai/rosbag_to_csv/wiki/1.png)
 
+## Select topics to convert csv
+
+You can select topics to save in csv files.
+
+![リンクテキスト](https://github.com/AtsushiSakai/rosbag_to_csv/wiki/2.png)
+
+## Wait seconds....
+
+A Message "Converting..." is displayed in the terminal.
+
+## Finish convert
+
+When you see the finish convert message dialog,
+
+![リンクテキスト](https://github.com/AtsushiSakai/rosbag_to_csv/wiki/3.png)
+
+CSV files are generated.
+
+![リンクテキスト](https://github.com/AtsushiSakai/rosbag_to_csv/wiki/4.png)
+
+
+# License
+
+MIT

@@ -1,6 +1,6 @@
 # rosbag_to_csv
 
-A GUI tool to rosbag topics to csv files
+A GUI tool to convert topics from a rosbag file to csv files
 
 # Install
 
@@ -30,15 +30,15 @@ A Message "Converting..." is displayed in the terminal.
 
 ## Finish convert
 
-When you see the finish convert message dialog,
+When the finish convert message dialog is shown,
 
 ![リンクテキスト](https://github.com/AtsushiSakai/rosbag_filter_gui/wiki/4.png)
 
-CSV files are generated.
+CSV files are generated successfly.
 
 ![リンクテキスト](https://github.com/AtsushiSakai/rosbag_to_csv/wiki/4.png)
 
-CSV file name is same as the selected topic name.
+The CSV file name is same as the each selected topic name.
 
 If You open the csv file with office software, you can see:
 

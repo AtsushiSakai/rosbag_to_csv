@@ -32,13 +32,15 @@ A Message "Converting..." is displayed in the terminal.
 
 When you see the finish convert message dialog,
 
-![リンクテキスト](https://github.com/AtsushiSakai/rosbag_filter_gui/4.png)
+![リンクテキスト](https://github.com/AtsushiSakai/rosbag_filter_gui/wiki/4.png)
 
 CSV files are generated.
 
 ![リンクテキスト](https://github.com/AtsushiSakai/rosbag_to_csv/wiki/4.png)
 
+CSV file name is same as the selected topic name.
 
+If You open the csv file with office software, you can see:
 
 ![リンクテキスト](https://github.com/AtsushiSakai/rosbag_to_csv/wiki/3.png)
 

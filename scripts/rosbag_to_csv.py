@@ -8,7 +8,6 @@ import rospy
 import subprocess
 from optparse import OptionParser
 from datetime import datetime
-import uuid
 
 def message_to_csv(stream, msg, flatten=False):
     """
@@ -41,11 +40,6 @@ def message_type_to_csv(stream, msg, parent_content_name=""):
             message_type_to_csv(stream, val, ".".join([parent_content_name,s]))
     except:
         stream.write("," + parent_content_name)
-
-seq = 0
-nowtime = datetime.now().strftime("%Y%m%d-%H%M%S")
-
-
 
 def format_csv_filename(form, topic_name):
     global seq
@@ -116,18 +110,25 @@ def main(options):
     files=SimplePyQtGUIKit.GetFilePath(isApp=True,caption="Select bag file",filefilter="*bag")
     #  print files
     if len(files)<1:
-        print("Please select a bag file")
+        print("Error:Please select a bag file")
         sys.exit()
 
     topics=GetTopicList(files[0])
-    selected=SimplePyQtGUIKit.GetCheckButtonSelect(topics,app=app,msg="Select topics which you want to keep")
+    selected=SimplePyQtGUIKit.GetCheckButtonSelect(topics,app=app,msg="Select topics to convert csv files")
+
+    options.topic_names=[]
+    for k,v in selected.items():
+        if v:
+            options.topic_names.append(k)
+
+    if len(options.topic_names)==0:
+        print("Error:Please select topics")
+        sys.exit()
 
     options.output_file_format="%t.csv"
-    bag_to_csv(options,files[0])
 
     print("Converting....")
-    p = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-    stdout_data, stderr_data = p.communicate()
+    bag_to_csv(options,files[0])
 
     QtGui.QMessageBox.information(QtGui.QWidget(), "Message", "Finish Convert!!")
 
@@ -141,8 +142,6 @@ if __name__ == '__main__':
     parser.add_option("-t", "--topic", dest="topic_names",
             action="append",
                       help="white list topic names", metavar="TOPIC_NAME")
-    parser.add_option("-O", "--output", dest="output_file_format",
-                      help="output file names format\n%t: topic name\n%s: sequential number\n%d: datetime (now)\n%u: uuid\ne.g.: -O jskbag-$t-$d.csv", metavar="DESTINATION")
     parser.add_option("-s", "--start-time", dest="start_time",
                       help="start time of bagfile", type="float")
     parser.add_option("-e", "--end-time", dest="end_time",

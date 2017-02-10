@@ -70,7 +70,7 @@ def bag_to_csv(options, fname):
             if streamdict.has_key(topic):
                 stream = streamdict[topic]
             else:
-                stream = open(format_csv_filename(options.output_file_format, topic),'w')
+                stream = open(format_csv_filename(options.output_file_format, fname[fname.rfind('/'):-4]+topic),'w')
                 streamdict[topic] = stream
                 # header
                 if options.header:

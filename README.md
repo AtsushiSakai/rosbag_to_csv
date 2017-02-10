@@ -16,13 +16,13 @@ clone this repository
 
 ## Select a bag file with the GUI
 
-![リンクテキスト](https://github.com/AtsushiSakai/rosbag_to_csv/wiki/1.png)
+![1](https://github.com/AtsushiSakai/rosbag_to_csv/wiki/1.png)
 
 ## Select topics to convert csv
 
 You can select topics to save in csv files.
 
-![リンクテキスト](https://github.com/AtsushiSakai/rosbag_to_csv/wiki/2.png)
+![2](https://github.com/AtsushiSakai/rosbag_to_csv/blob/master/images/pic1.png)
 
 ## Wait seconds....
 
@@ -32,17 +32,18 @@ A Message "Converting..." is displayed in the terminal.
 
 When the finish convert message dialog is shown,
 
-![リンクテキスト](https://github.com/AtsushiSakai/rosbag_filter_gui/wiki/4.png)
+![3](https://github.com/AtsushiSakai/rosbag_filter_gui/wiki/4.png)
 
 CSV files are generated successfly.
 
-![リンクテキスト](https://github.com/AtsushiSakai/rosbag_to_csv/wiki/4.png)
+![4](https://github.com/AtsushiSakai/rosbag_to_csv/blob/master/images/pic2.png)
 
-The CSV file name is same as the each selected topic name.
+
+The CSV file name is same as the bag file name _ each selected topic name .csv.
 
 If You open the csv file with office software, you can see:
 
-![リンクテキスト](https://github.com/AtsushiSakai/rosbag_to_csv/wiki/3.png)
+![5](https://github.com/AtsushiSakai/rosbag_to_csv/wiki/3.png)
 
 
 # License

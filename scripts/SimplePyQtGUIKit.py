@@ -2,6 +2,7 @@
 # -*- coding:utf-8 -*-
 
 from PyQt4.QtGui  import *
+from PyQt4.QtCore import *
 import sys
 
 class SimplePyQtGUIKit:
@@ -39,7 +40,13 @@ class SimplePyQtGUIKit:
         if app is None:
           app = QApplication(sys.argv)
         win = QWidget()
+        scrollArea = QScrollArea()
+        scrollArea.setWidgetResizable(True)
+        scrollAreaWidgetContents = QWidget(scrollArea)
+        scrollAreaWidgetContents.setGeometry(QRect(0, 0, 380, 247))
+        scrollArea.setWidget(scrollAreaWidgetContents)
         layout=QGridLayout()
+        verticalLayoutScroll = QVBoxLayout(scrollAreaWidgetContents)
         layoutIndex=0
 
         if msg is not "":
@@ -50,14 +57,16 @@ class SimplePyQtGUIKit:
         checkboxs=[]
         for select in selectList:
             checkbox=QCheckBox(select)
-            layout.addWidget(checkbox,layoutIndex,0)
+            verticalLayoutScroll.addWidget(checkbox)
             layoutIndex=layoutIndex+1
             checkboxs.append(checkbox)
 
+        layout.addWidget(scrollArea)
         btn=QPushButton("OK")
         btn.clicked.connect(app.quit)
         layout.addWidget(btn,layoutIndex,0)
         layoutIndex=layoutIndex+1
+
 
         win.setLayout(layout)
         win.setWindowTitle(title)

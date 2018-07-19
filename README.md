@@ -6,8 +6,8 @@ A GUI tool to convert topics from a rosbag file to csv files
 
 clone this repository
 
-> $ cd ~/catkin_ws/src
-> $ git clone https://github.com/AtsushiSakai/rosbag_to_csv.git
+> $ cd ~/catkin_ws/src  
+> $ git clone https://github.com/AtsushiSakai/rosbag_to_csv.git  
 > $ cd ~/catkin_ws && rosdep install -r --ignore-src --from-paths src
 
 # How to use

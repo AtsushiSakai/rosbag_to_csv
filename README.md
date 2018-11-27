@@ -6,7 +6,9 @@ A GUI tool to convert topics from a rosbag file to csv files
 
 clone this repository
 
-> $ git clone https://github.com/AtsushiSakai/rosbag_to_csv.git
+> $ cd ~/catkin_ws/src  
+> $ git clone https://github.com/AtsushiSakai/rosbag_to_csv.git  
+> $ cd ~/catkin_ws && rosdep install -r --ignore-src --from-paths src
 
 # How to use
 
@@ -34,7 +36,7 @@ When the finish convert message dialog is shown,
 
 ![3](https://github.com/AtsushiSakai/rosbag_filter_gui/wiki/4.png)
 
-CSV files are generated successfly.
+CSV files are generated successfly in `~/.ros`.
 
 ![4](https://github.com/AtsushiSakai/rosbag_to_csv/blob/master/images/pic2.png)
 

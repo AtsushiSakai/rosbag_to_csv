@@ -101,7 +101,7 @@ def GetTopicList(path):
 
     #  print "GetTopicList result:"
     #  print results
-    return results
+    return sorted(results)
 
 def main(options):
     app = QtGui.QApplication(sys.argv)

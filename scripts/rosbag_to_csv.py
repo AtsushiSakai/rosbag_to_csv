@@ -60,16 +60,15 @@ def bag_to_csv(options, fname):
         if options.end_time:
             etime = rospy.Time(options.end_time)
     except Exception as e:
-        rospy.logfatal('failed to load bag file: %s', e)
+        rospy.logfatal("failed to load bag file: %s", e)
         exit(1)
     finally:
-        rospy.loginfo('loaded bag file: {}'.format(fname))
+        rospy.loginfo(f"loaded bag file: {fname}")
 
     try:
         for topic, msg, time in bag.read_messages(topics=options.topic_names,
                                                   start_time=stime,
                                                   end_time=etime):
-            # if streamdict.has_key(topic):
             if topic in streamdict:
                 stream = streamdict[topic]
             else:
@@ -94,10 +93,9 @@ def bag_to_csv(options, fname):
 def GetTopicList(path):
     bag = rosbag.Bag(path)
     topics = list(bag.get_type_and_topic_info()[1].keys())
-    print("topics: {}".format(topics))
+    print(f"{topics=}")
     types=[]
     for dict_values in list(bag.get_type_and_topic_info()[1].values()):
-        # type(dict_values) == rosbag.bag.TopicTuple
         print(dict_values[0])
         types.append(dict_values[0])
 
@@ -105,7 +103,6 @@ def GetTopicList(path):
     for to,ty in zip(topics,types):
         results.append(to)
 
-    #  print("GetTopicList result: {}".format(results))
     return results
 
 def main(options):
@@ -113,7 +110,7 @@ def main(options):
 
     #GetFilePath
     files=SimplePyQtGUIKit.GetFilePath(isApp=True,caption="Select bag file",filefilter="*bag")
-    print("files: {}".format(files))
+    print(f"{files=}")
     if len(files)<1:
         print("Error:Please select a bag file")
         sys.exit()
@@ -138,7 +135,7 @@ def main(options):
 
 if __name__ == '__main__':
     print("rosbag_to_csv start!!")
-    print('waiting for roscore...')
+    print("waiting for roscore...")
     rospy.init_node('rosbag_to_csv', anonymous=True)
     parser = OptionParser(usage="%prog [options] bagfile")
     parser.add_option("-a", "--all", dest="all_topics",

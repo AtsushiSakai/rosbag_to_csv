@@ -1,8 +1,6 @@
 #!/usr/bin/env python3
 
-# from PyQt5.QtGui  import *
-# from PyQt5.QtCore import *
-from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5 import QtCore, QtWidgets
 import sys
 
 class SimplePyQtGUIKit:
@@ -83,10 +81,7 @@ class SimplePyQtGUIKit:
         return result
 
 if __name__ == '__main__':
-    #  print("GetCheckButtonSelect")
-    #  optList=SimplePyQtGUIKit.GetCheckButtonSelect(["sample a","sample b","sample c"], title="Select sample", msg="Please select sample")
-    #  print(optList)
     filePath=SimplePyQtGUIKit.GetFilePath(caption=u"Select files",filefilter="*py")
-    print(filePath)
+    print(f"{filePath=}")
 
 

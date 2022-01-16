@@ -42,7 +42,7 @@
   <buildtool_depend>catkin</buildtool_depend>
   <build_depend>rospy</build_depend>
   <run_depend>rospy</run_depend>
-  <run_depend>pyqt4-dev-tools</run_depend>
+  <run_depend>pyqt5-dev-tools</run_depend>
 
 
   <!-- The export tag contains other, unspecified, tags -->

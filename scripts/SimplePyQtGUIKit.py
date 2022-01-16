@@ -1,13 +1,11 @@
-#!/usr/bin/env python
-# -*- coding:utf-8 -*-
+#!/usr/bin/env python3
 
-from PyQt4.QtGui  import *
-from PyQt4.QtCore import *
+from PyQt5 import QtCore, QtWidgets
 import sys
 
 class SimplePyQtGUIKit:
     def QuitApp(self):
-        QApplication.quit()
+        QtWidgets.QApplication.quit()
 
     @classmethod
     def GetFilePath(self,caption="Open File",filefilter="",isApp=False):
@@ -16,13 +14,16 @@ class SimplePyQtGUIKit:
         """
 
         if not isApp:
-          app = QApplication(sys.argv)
-        files=QFileDialog.getOpenFileNames(caption=caption,filter=filefilter)
+          app = QtWidgets.QApplication(sys.argv)
+        files=QtWidgets.QFileDialog.getOpenFileNames(caption=caption,filter=filefilter)
 
         strlist=[]
         for file in files:
-            strlist.append(str(file))
-
+            if type(file) == list:
+                for f in file:
+                    strlist.append(str(f))
+            else:
+                strlist.append(str(file))
         return strlist
 
 
@@ -38,31 +39,31 @@ class SimplePyQtGUIKit:
         """
  
         if app is None:
-          app = QApplication(sys.argv)
-        win = QWidget()
-        scrollArea = QScrollArea()
+          app = QtWidgets.QApplication(sys.argv)
+        win = QtWidgets.QWidget()
+        scrollArea = QtWidgets.QScrollArea()
         scrollArea.setWidgetResizable(True)
-        scrollAreaWidgetContents = QWidget(scrollArea)
-        scrollAreaWidgetContents.setGeometry(QRect(0, 0, 380, 247))
+        scrollAreaWidgetContents = QtWidgets.QWidget(scrollArea)
+        scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 380, 247))
         scrollArea.setWidget(scrollAreaWidgetContents)
-        layout=QGridLayout()
-        verticalLayoutScroll = QVBoxLayout(scrollAreaWidgetContents)
+        layout=QtWidgets.QGridLayout()
+        verticalLayoutScroll = QtWidgets.QVBoxLayout(scrollAreaWidgetContents)
         layoutIndex=0
 
-        if msg is not "":
-            label = QLabel(msg)
+        if msg != "":
+            label = QtWidgets.QLabel(msg)
             layout.addWidget(label,layoutIndex,0)
             layoutIndex=layoutIndex+1
 
         checkboxs=[]
         for select in selectList:
-            checkbox=QCheckBox(select)
+            checkbox=QtWidgets.QCheckBox(select)
             verticalLayoutScroll.addWidget(checkbox)
             layoutIndex=layoutIndex+1
             checkboxs.append(checkbox)
 
         layout.addWidget(scrollArea)
-        btn=QPushButton("OK")
+        btn=QtWidgets.QPushButton("OK")
         btn.clicked.connect(app.quit)
         layout.addWidget(btn,layoutIndex,0)
         layoutIndex=layoutIndex+1
@@ -80,10 +81,7 @@ class SimplePyQtGUIKit:
         return result
 
 if __name__ == '__main__':
-    #  print "GetCheckButtonSelect"
-    #  optList=SimplePyQtGUIKit.GetCheckButtonSelect(["sample a","sample b","sample c"], title="Select sample", msg="Please select sample")
-    #  print optList
     filePath=SimplePyQtGUIKit.GetFilePath(caption=u"Select files",filefilter="*py")
-    print filePath
+    print(f"{filePath=}")
 
 

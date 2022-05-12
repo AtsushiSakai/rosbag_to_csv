@@ -1,6 +1,6 @@
 # rosbag_to_csv
 
-A GUI tool to convert topics from a single rosbag file or multiple rosbag files to csv files
+A GUI tool to convert topics from a single rosbag file or multiple rosbag files at once to csv files
 
 # Supported versions
 

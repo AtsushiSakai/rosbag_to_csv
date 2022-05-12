@@ -1,13 +1,13 @@
 # rosbag_to_csv
 
-A GUI tool to convert topics from a rosbag file to csv files
+A GUI tool to convert topics from a single rosbag file or multiple rosbag files at once to csv files
 
 # Supported versions
 
 * [`master` branch](https://github.com/AtsushiSakai/rosbag_to_csv/tree/master): Python3 (ROS Noetic)
 * [`python2` branch](https://github.com/AtsushiSakai/rosbag_to_csv/tree/python2): Python2 (ROS Melodic)
 
-# Install
+# Install Dependencies and Build
 
 ## Python3
 
@@ -17,6 +17,7 @@ clone this repository
 $ cd ~/catkin_ws/src  
 $ git clone https://github.com/AtsushiSakai/rosbag_to_csv.git  
 $ cd ~/catkin_ws && rosdep install -r --ignore-src --from-paths src
+$ catkin_make
 ```
 
 ## Python2
@@ -27,17 +28,17 @@ clone this repository with `-b python2` option
 $ cd ~/catkin_ws/src  
 $ git clone -b python2 https://github.com/AtsushiSakai/rosbag_to_csv.git  
 $ cd ~/catkin_ws && rosdep install -r --ignore-src --from-paths src
+$ catkin_make
 ```
 
 # How to use
 
 ## Start the node
-
 ```
 $ rosrun rosbag_to_csv rosbag_to_csv.py
 ```
 
-## Select a bag file with the GUI
+## Select a single bag file or multiple bag files with the GUI
 
 ![1](https://github.com/AtsushiSakai/rosbag_to_csv/wiki/1.png)
 

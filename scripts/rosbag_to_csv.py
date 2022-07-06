@@ -91,6 +91,7 @@ def bag_to_csv(options, fname):
 def GetTopicList(path):
     bag = rosbag.Bag(path)
     topics = bag.get_type_and_topic_info()[1].keys()
+    print("topics={:}\n".format(topics))
     types=[]
     for i in range(0,len(bag.get_type_and_topic_info()[1].values())):
         types.append(bag.get_type_and_topic_info()[1].values()[i][0])
@@ -109,6 +110,7 @@ def main(options):
     #GetFilePath
     files=SimplePyQtGUIKit.GetFilePath(isApp=True,caption="Select bag file",filefilter="*bag")
     #  print files
+    print("files={:}\n".format(files))
     if len(files)<1:
         print("Error:Please select a bag file")
         sys.exit()
@@ -120,6 +122,7 @@ def main(options):
     for k,v in selected.items():
         if v:
             options.topic_names.append(k)
+    print("selected topics={:}\n".format(options.topic_names))
 
     if len(options.topic_names)==0:
         print("Error:Please select topics")
@@ -128,7 +131,8 @@ def main(options):
     options.output_file_format="%t.csv"
 
     print("Converting....")
-    bag_to_csv(options,files[0])
+    for i in range(0, len(files)):
+        bag_to_csv(options, files[i])
 
     QtGui.QMessageBox.information(QtGui.QWidget(), "Message", "Finish Convert!!")
 

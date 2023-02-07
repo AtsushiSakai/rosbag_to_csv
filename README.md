@@ -4,7 +4,7 @@ A GUI tool to convert topics from a single rosbag file or multiple rosbag files 
 
 # Supported versions
 
-* [`master` branch](https://github.com/AtsushiSakai/rosbag_to_csv/tree/master): Python3 (ROS Noetic)
+* [`master` branch](https://github.com/AtsushiSakai/rosbag_to_csv/tree/master): Python3 (ROS Noetic, Python 3.8 or higher.)
 * [`python2` branch](https://github.com/AtsushiSakai/rosbag_to_csv/tree/python2): Python2 (ROS Melodic)
 
 # Install Dependencies and Build
